@@ -1,19 +1,19 @@
-double my_pow(double x, int y){
-    if (y == 0)
+double my_pow(double x, unsigned int y){
+    double count = 1;
+    if (y == 0) 
         return 1;
-    if (y > 0)
-        for (int i = 1; i < y; i++)
+    while (y)
+        if (y % 2 != 0)
         {
-            x *= 2;
+            count*=x;
+            y--;
         }
-    if (y < 0){
-        for (int i = y; i < -1; i++)
-            {
-                x *= 2;
-            }
-        x = 1 / x;
-    }
-    return x;
+        else
+        {
+            y /= 2;
+            x *= x;
+        }
+    return count;
 }
 
 int main(){
